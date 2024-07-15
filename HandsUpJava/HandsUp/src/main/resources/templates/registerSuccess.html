@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Successful</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+        
+        body {
+            background-color: #fafafa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        
+        .container {
+            display: flex;
+            max-width: 935px;
+            width: 100%;
+            background-color: #fff;
+            border: 1px solid #dbdbdb;
+        }
+        
+        .logo-section {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f0f0f0;
+        }
+        
+        .logo-section img {
+            max-width: 80%;
+        }
+        
+        .message-section {
+            flex: 1;
+            padding: 40px;
+            text-align: center;
+        }
+        
+        .message-section h1 {
+            font-family: 'Billabong', sans-serif;
+            font-size: 3em;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .message-section p {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+        
+        .message-section button {
+            padding: 10px 20px;
+            background-color: #3897f0;
+            color: #fff;
+            border: none;
+            border-radius: 3px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo-section">
+            <img src="/asset/img/HANDSUPcircle.png" alt="Logo">
+        </div>
+        <div class="message-section">
+            <h1>Registration Successful!</h1>
+            <p>Your registration has been completed successfully.</p>
+           <button onclick="window.location.href='/'">Go to Login</button>
+        </div>
+    </div>
+</body>
+</html>

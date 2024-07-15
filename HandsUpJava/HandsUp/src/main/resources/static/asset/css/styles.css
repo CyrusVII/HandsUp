@@ -1,0 +1,612 @@
+/* Reset CSS base */
+body, h1, h2, h3, p, ul, li {
+	margin: 0;
+	padding: 0;
+}
+
+/* Stile del corpo della pagina */
+body {
+	font-family: Arial, sans-serif;
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh; /* Altezza minima pari alla viewport */
+	margin: 0;
+	background-color: #e9ebee;
+}
+
+/* Stile dell'header */
+header {
+	background-color: #5f93fd;
+	color: white;
+	padding: 15px 20px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.user-profile {
+	display: flex;
+	align-items: center;
+}
+
+.user-profile img {
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	margin-right: 10px;
+}
+
+/* Contenitore della barra di ricerca */
+.search-bar {
+	flex: 1;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+/* Stile dell'input della barra di ricerca */
+.search-bar input {
+	width: 100%;
+	max-width: 400px;
+	padding: 8px 15px;
+	border-radius: 20px;
+	border: 1px solid #ccc;
+}
+
+/* Contenitore del menu a tendina */
+.menu-dropdown {
+	position: relative;
+	display: inline-block;
+}
+
+/* Stile del pulsante del menu */
+.menu-dropdown button {
+	background-color: #3b5998;
+	color: white;
+	border: none;
+	padding: 10px 20px;
+	cursor: pointer;
+	font-size: 16px;
+}
+
+/* Contenitore del contenuto del menu a tendina */
+.menu-dropdown-content {
+	display: none;
+	position: absolute;
+	background-color: white;
+	min-width: 160px;
+	box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+	z-index: 1;
+	right: 0;
+}
+
+/* Stile dei link all'interno del menu a tendina */
+.menu-dropdown-content a {
+	color: black;
+	padding: 12px 16px;
+	text-decoration: none;
+	display: block;
+}
+
+/* Stile dei link al passaggio del mouse */
+.menu-dropdown-content a:hover {
+	background-color: #f1f1f1;
+}
+
+/* Mostra il menu a tendina al passaggio del mouse */
+.menu-dropdown:hover .menu-dropdown-content {
+	display: block;
+}
+
+/* Cambia colore del pulsante del menu al passaggio del mouse */
+.menu-dropdown:hover button {
+	background-color: #354f88;
+}
+
+/* Stile del contenitore principale */
+.container {
+	display: flex;
+	flex-direction: row; /* Cambia da column a row */
+}
+
+/* Stile della sezione principale di contenuto */
+.main-content {
+	flex: 1;
+	max-width: 800px;
+	padding: 20px;
+	background-color: #e9ebee;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin: 0 auto;
+}
+
+/* Stile dei post */
+.post {
+	background-color: white;
+	width: 100%;
+	max-width: 600px;
+	margin-bottom: 15px;
+	margin-left: 300px;
+	padding: 15px;
+	border-radius: 5px;
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+	display: flex;
+	flex-direction: column;
+	text-align: left;
+}
+
+/* Stile dell'immagine del profilo */
+.profile-img {
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	margin-right: 10px;
+}
+
+/* Contenitore delle informazioni dell'utente */
+.post-user-info {
+	display: flex;
+	align-items: center;
+	margin-bottom: 10px;
+	width: 100%;
+}
+
+/* Stile del nome dell'utente */
+.post-user-info h3 {
+	margin: 0;
+}
+
+/* Contenitore delle opzioni del post */
+.post-options {
+	position: relative;
+	display: inline-block;
+	margin-left: auto;
+}
+
+/* Stile del pulsante delle opzioni */
+.post-options button {
+	background: none;
+	border: none;
+	color: #999;
+	cursor: pointer;
+	font-size: 20px;
+}
+
+/* Cambia colore del pulsante delle opzioni al passaggio del mouse */
+.post-options button:hover {
+	color: #666;
+}
+
+/* Contenitore delle opzioni a tendina */
+.dropdown-content {
+	display: none;
+	position: absolute;
+	background-color: white;
+	min-width: 160px;
+	box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+	z-index: 1;
+	right: 0;
+}
+
+/* Mostra le opzioni a tendina al passaggio del mouse */
+.post-options:hover .dropdown-content {
+	display: block;
+}
+
+/* Stile dei link nelle opzioni a tendina */
+.dropdown-content a {
+	color: black;
+	padding: 12px 16px;
+	text-decoration: none;
+	display: block;
+}
+
+/* Stile dei link nelle opzioni a tendina al passaggio del mouse */
+.dropdown-content a:hover {
+	background-color: #f1f1f1;
+}
+
+.followed-users {
+	background-color: #5f93fd;
+	width: 200px; /* Larghezza desiderata per gli utenti seguiti */
+	padding: 15px;
+}
+
+.followed-users h2 {
+	margin-bottom: 10px;
+}
+
+.followed-users ul {
+	list-style-type: none;
+	padding: 0;
+}
+
+.followed-users li {
+	display: flex;
+	align-items: center;
+	margin-bottom: 10px;
+}
+
+.followed-users img {
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	margin-right: 10px;
+}
+/* The design is inspired from Galahhad*/
+
+/* popup settings */
+.popup {
+	--burger-color: #333;
+	--burger-line-border-radius: 0.1875em;
+	--burger-diameter: 3.125em;
+	--burger-btn-border-radius: calc(var(--burger-diameter)/2);
+	--burger-line-transition: 0.3s;
+	--burger-transition: all 0.1s ease-in-out;
+	--burger-hover-scale: 1.1;
+	/* nav */
+	--nav-padding-x: 0.25em;
+	--nav-padding-y: 0.625em;
+	--nav-border-radius: 0.375em;
+	--nav-border-color: #ccc;
+	--nav-border-width: 0.0625em;
+	--nav-shadow-color: rgba(0, 0, 0, 0.2);
+	--nav-shadow-width: 0 1px 5px;
+	--nav-bg: #eee;
+	--nav-font-family: "Poppins", sans-serif;
+	--nav-default-scale: 0.8;
+	--nav-active-scale: 1;
+	--nav-position-left: unset;
+	--nav-position-right: 0; /* changed from 0 to unset */
+	/* if you want to change sides just switch one property */
+	/* from properties to "unset" and the other to 0 */
+	/* title */
+	--nav-title-size: 0.625em;
+	--nav-title-color: #777;
+	--nav-title-padding-x: 1rem;
+	--nav-title-padding-y: 0.25em;
+	/* nav button */
+	--nav-button-padding-x: 1rem;
+	--nav-button-padding-y: 0.375em;
+	--nav-button-border-radius: 0.375em;
+	--nav-button-font-size: 17px;
+	--nav-button-hover-bg: #1e3f8b; /* modificare*/
+	--nav-button-hover-text-color: #fff;
+	--nav-button-distance: 0.875em;
+	/* underline */
+	--underline-border-width: 0.0625em;
+	--underline-border-color: #ccc;
+	--underline-margin-y: 0.3125em;
+}
+
+/* popup settings 👆 */
+.popup {
+	display: inline-block;
+	text-rendering: optimizeLegibility;
+	position: relative;
+}
+
+.popup input {
+	display: none;
+}
+
+.burger {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	position: relative;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+	background: var(--burger-bg);
+	width: var(--burger-diameter);
+	height: var(--burger-diameter);
+	border-radius: var(--burger-btn-border-radius);
+	border: none;
+	cursor: pointer;
+	overflow: hidden;
+	-webkit-transition: var(--burger-transition);
+	transition: var(--burger-transition);
+	outline: var(--burger-enable-outline-width) solid transparent;
+	outline-offset: 0;
+}
+
+/* popup styles */
+.popup-window {
+	-webkit-transform: scale(var(--nav-default-scale));
+	-ms-transform: scale(var(--nav-default-scale));
+	transform: scale(var(--nav-default-scale));
+	visibility: hidden;
+	opacity: 0;
+	position: absolute;
+	padding: var(--nav-padding-y) var(--nav-padding-x);
+	background: var(--nav-bg);
+	font-family: var(--nav-font-family);
+	color: var(--nav-text-color);
+	border-radius: var(--nav-border-radius);
+	-webkit-box-shadow: var(--nav-shadow-width) var(--nav-shadow-color);
+	box-shadow: var(--nav-shadow-width) var(--nav-shadow-color);
+	border: var(--nav-border-width) solid var(--nav-border-color);
+	top: calc(var(--burger-diameter)+ var(--burger-enable-outline-width)+
+      var(--burger-enable-outline-offset));
+	left: unset; /* changed from 0 to unset */
+	right: var(--nav-position-right); /* changed from unset to 0 */
+	-webkit-transition: var(--burger-transition);
+	transition: var(--burger-transition);
+	margin-top: 10px;
+}
+
+.popup-window legend {
+	padding: var(--nav-title-padding-y) var(--nav-title-padding-x);
+	margin: 0;
+	color: var(--nav-title-color);
+	font-size: var(--nav-title-size);
+	text-transform: uppercase;
+}
+
+.popup-window ul {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+
+.popup-window ul button {
+	outline: none;
+	width: 100%;
+	border: none;
+	background: none;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	color: var(--burger-color);
+	font-size: var(--nav-button-font-size);
+	padding: var(--nav-button-padding-y) var(--nav-button-padding-x);
+	white-space: nowrap;
+	border-radius: var(--nav-button-border-radius);
+	cursor: pointer;
+	-webkit-column-gap: var(--nav-button-distance);
+	-moz-column-gap: var(--nav-button-distance);
+	column-gap: var(--nav-button-distance);
+}
+
+.popup-window ul li:nth-child(1) svg, .popup-window ul li:nth-child(2) svg
+	{
+	color: #01184e; /*modificare*/
+}
+
+.popup-window ul li:nth-child(4) svg, .popup-window ul li:nth-child(5) svg
+	{
+	color: rgb(153, 153, 153);
+}
+
+.popup-window ul li:nth-child(7) svg {
+	color: red;
+}
+
+.popup-window hr {
+	margin: var(--underline-margin-y) 0;
+	border: none;
+	border-bottom: var(--underline-border-width) solid
+		var(--underline-border-color);
+}
+
+/* actions */
+.popup-window ul button:hover, .popup-window ul button:focus-visible,
+	.popup-window ul button:hover svg, .popup-window ul button:focus-visible svg
+	{
+	color: var(--nav-button-hover-text-color);
+	background: var(--nav-button-hover-bg);
+}
+
+.burger:hover {
+	-webkit-transform: scale(var(--burger-hover-scale));
+	-ms-transform: scale(var(--burger-hover-scale));
+	transform: scale(var(--burger-hover-scale));
+}
+
+.burger:active {
+	-webkit-transform: scale(var(--burger-active-scale));
+	-ms-transform: scale(var(--burger-active-scale));
+	transform: scale(var(--burger-active-scale));
+}
+
+.burger:focus:not(:hover) {
+	outline-color: var(--burger-enable-outline-color);
+	outline-offset: var(--burger-enable-outline-offset);
+}
+
+/* popup actions */
+.popup input:checked+.burger span:nth-child(1) {
+	top: 50%;
+	-webkit-transform: translateY(-50%) rotate(45deg);
+	-ms-transform: translateY(-50%) rotate(45deg);
+	transform: translateY(-50%) rotate(45deg);
+}
+
+.popup input:checked+.burger span:nth-child(2) {
+	bottom: 50%;
+	-webkit-transform: translateY(50%) rotate(-45deg);
+	-ms-transform: translateY(50%) rotate(-45deg);
+	transform: translateY(50%) rotate(-45deg);
+}
+
+.popup input:checked+.burger span:nth-child(3) {
+	-webkit-transform: translateX(calc(var(--burger-diameter)* -1- var(--burger-line-width)));
+	-ms-transform: translateX(calc(var(--burger-diameter)* -1- var(--burger-line-width)));
+	transform: translateX(calc(var(--burger-diameter)* -1- var(--burger-line-width)));
+}
+
+.popup input:checked ~ nav {
+	-webkit-transform: scale(var(--nav-active-scale));
+	-ms-transform: scale(var(--nav-active-scale));
+	transform: scale(var(--nav-active-scale));
+	visibility: visible;
+	opacity: 1;
+}
+
+header .logo img {
+	width: 80px; /* Imposta la larghezza desiderata */
+	height: 80px; /* Imposta l'altezza desiderata */
+}
+
+.user-link {
+	text-decoration: none;
+	color: inherit;
+	/* Mantenere il colore del testo del link uguale al testo normale */
+}
+
+.post-card {
+	/* Stili per il layout di ciascun post */
+	padding: 10px;
+	margin-bottom: 20px;
+	/* Altri stili necessari */
+}
+
+.reactions {
+	display: flex;
+	gap: 10px; /* Spazio tra Mi Piace e Non Mi Piace */
+}
+.reactions-com{
+	margin-left:auto;
+}
+
+.like, .dislike {
+	display: flex;
+	align-items: center;
+}
+
+.like img, .dislike img {
+	margin-right: 5px; /* Spazio tra icona e testo */
+}
+
+.like span {
+	transition: color 0.3s ease; /* Esempio: transizione di colore */
+}
+
+.confirmation-message {
+	color: green;
+	font-weight: bold;
+}
+
+.small-font-button {
+    font-size: 12px; /* Imposta la dimensione del font desiderata */
+}
+
+.commenti {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    height: auto; /* L'altezza è automatica in base al contenuto */
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+        .commenti.show {
+            display: block;
+        }
+
+        .commenti iframe {
+            width: 100%;
+            height: calc(100% - 40px); /* Altezza meno l'altezza del pulsante Chiudi */
+            border: none;
+        }
+         .commenti-button {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        padding: 5px 10px;
+        background-color: #ccc;
+        border: none;
+        cursor: pointer;
+    }
+
+.hidden {
+    display: none;
+}
+
+.comment {
+    display: flex;
+    align-items: flex-start; /* Allinea gli elementi in alto */
+    margin-bottom: 10px; /* Margine inferiore per separare i commenti */
+    margin-top: 20px; /* Margine superiore aggiunto */
+}
+
+.profile-imga {
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	margin-right: 10px;
+    margin-right: 10px; /* Spazio a destra della foto profilo */
+    margin-top: 15px; /* Margine superiore aggiunto */
+}
+
+.comment-content {
+    flex: 1; /* Flessibilità per espandersi in tutta la larghezza disponibile */
+    margin-top: 15px; /* Margine superiore aggiunto */
+}
+
+.comment-content strong {
+    margin-right: 5px; /* Margine a destra per separare il nome utente dal commento */
+}
+
+.comment-content p {
+    margin: 10px 0 0; /* Margine superiore per separare il paragrafo dal nome utente */
+}
+
+
+.like-btn {
+    margin-left: auto; /* Sposta il pulsante "Mi Piace" completamente a destra */
+    background-color: #ddd; /* Colore di sfondo del pulsante */
+    border: none; /* Rimuove il bordo */
+    cursor: pointer; /* Cambia il cursore al passaggio */
+    padding: 5px 10px; /* Padding interno */
+
+}
+
+.like-btn2 {
+    margin-left: auto; /* Sposta il pulsante "Mi Piace" completamente a destra */
+    background-color: #ddd; /* Colore di sfondo del pulsante */
+    border: none; /* Rimuove il bordo */
+    cursor: pointer; /* Cambia il cursore al passaggio */
+    padding: 5px 10px; /* Padding interno */
+	margin-bottom:16px;
+	
+}
+
+ .btn-primary {
+            background-color: #5f93fd;
+            border-color: #5f93fd;
+        }
+        .btn-primary:hover {
+            background-color: #4a7de0;
+            border-color: #4a7de0;
+        }
+        /* Stili per il modal */
+        .modal-dialog {
+            margin: auto;
+        }
+        .modal-content {
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+/* Footer */
+footer {
+	background-color: #3b5998;
+	color: white;
+	text-align: center;
+	padding: 10px 0;
+	width: 100%;
+}

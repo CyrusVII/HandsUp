@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="asset/css/popup.css">
+<title>Attività di Volontariato</title>
+<!-- Bootstrap CSS -->
+<link
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+	rel="stylesheet">
+<style>
+body {
+	background-color: #f8f9fa;
+	margin: 0;
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+	font-family: 'Tahoma', sans-serif;
+}
+
+/* Stile dell'header */
+header {
+	background-color: #5f93fd;
+	color: white;
+	padding: 15px 30px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+header .logo img {
+	width: 80px; /* Imposta la larghezza desiderata */
+	height: 80px; /* Imposta l'altezza desiderata */
+}
+
+.user-profile {
+	display: flex;
+	align-items: center;
+}
+
+.user-profile img {
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	margin-right: 10px;
+}
+
+.table-container {
+	max-width: 1300px;
+	margin: 20px auto;
+	background: #fff;
+	padding: 20px;
+	border-radius: 10px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	position: relative;
+	z-index: 1;
+}
+
+.table-header {
+	text-align: center;
+	margin-bottom: 20px;
+	position: relative;
+}
+
+.table-header h1 {
+	font-size: 24px;
+	font-weight: 700;
+}
+
+.btn-primary {
+	background-color: #5f93fd;
+	border-color: #5f93fd;
+}
+
+.btn-primary:hover {
+	background-color: #4a7de0;
+	border-color: #4a7de0;
+}
+
+.logo {
+	position: absolute;
+	top: 0px;
+	left: 10px;
+	width: 50px;
+	height: 50px;
+}
+
+.top-rectangle, .bottom-rectangle {
+	background-color: #5f93fd;
+	height: 50px;
+	width: 100%;
+	position: relative;
+}
+
+.bottom-rectangle {
+	margin-top: auto;
+}
+
+footer {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	background-color: #3b5998;
+	color: white;
+	text-align: center;
+	padding: 10px 0;
+}
+</style>
+</head>
+<body>
+	<div class="modal fade" id="candidaturaModal" tabindex="-1"
+		aria-labelledby="candidaturaModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="candidaturaModalLabel">Candidatura
+						confermata!</h5>
+				</div>
+				<div class="modal-body">
+					<p id="candidaturaMessage">Ti sei candidato per l'attività:</p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary" data-dismiss="modal">Chiudi</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<header>
+		<div class="top-rectangle">
+			<form id="ProfiloFrom" th:action="@{/index}" method="get">
+				<button type="submit"
+					style="border: none; background: none; padding: 0; cursor: pointer;">
+					<img src="/asset/img/HANDSUPcircle.png" alt="Logo" class="logo">
+				</button>
+			</form>
+		</div>
+
+		<div class="user-profile">
+			<div>
+				<p th:text="${username}" style="margin-right: 5px;"></p>
+			</div>
+			<!-- Menu a tendina -->
+			<label class="popup"> <input type="checkbox">
+				<div tabindex="0" class="burger">
+					<!-- Immagine profilo per l'utente -->
+					<img th:if="${userType == 'ROLE_USER'}"
+						th:src="@{'http://localhost:8080/users/' + ${username} + '/profile-picture'}"
+						class="profile-img">
+
+					<!-- Immagine profilo per l'azienda -->
+					<img th:if="${userType == 'ROLE_COMPANY'}"
+						th:src="@{'http://localhost:8080/azienda/' + ${username} + '/profile-picture'}"
+						class="profile-img">
+
+				</div>
+				<nav class="popup-window">
+					<legend>Menu</legend>
+					<ul>
+						<li><form id="ProfiloFrom" th:action="@{/index}" method="get">
+								<button>
+									<svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+										stroke="currentColor" stroke-width="1.2"
+										stroke-linecap="round" xmlns="http://www.w3.org/2000/svg">
+                                        <path
+											d="M12 2c-2.209 0-4 1.791-4 4s1.791 4 4 4 4-1.791 4-4-1.791-4-4-4zM12 10c-2.209 0-4 1.791-4 4v6h8v-6c0-2.209-1.791-4-4-4z"></path>
+                                    </svg>
+									<span>Home</span>
+								</button>
+							</form></li>
+						<li>
+							<form id="ProfiloFrom" th:action="@{/profilo}" method="get">
+								<button>
+									<svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+										stroke="currentColor" stroke-width="1.2"
+										stroke-linecap="round" xmlns="http://www.w3.org/2000/svg">
+                                        <path
+											d="M12 2c-2.209 0-4 1.791-4 4s1.791 4 4 4 4-1.791 4-4-1.791-4-4-4zM12 10c-2.209 0-4 1.791-4 4v6h8v-6c0-2.209-1.791-4-4-4z"></path>
+                                    </svg>
+									<span>Profilo</span>
+								</button>
+							</form>
+						</li>
+						<li>
+							<form id="PostFrom" th:action="@{/PaginaDiCaricamentoPost}"
+								method="get">
+								<button type="submit">
+									<svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+										stroke="currentColor" stroke-width="1.2"
+										stroke-linecap="round" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M12 5v14m-7-7h14"></path>
+                                    </svg>
+									<span>Crea Post</span>
+								</button>
+							</form>
+						</li>
+						<li>
+						<form id="ChiSiamo" name="ChiSiamo" th:action="@{/ChiSiamo}">
+							<button>
+								<svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+									stroke="currentColor" stroke-width="1.2" stroke-linecap="round"
+									xmlns="http://www.w3.org/2000/svg">
+                                    <path
+										d="M16.5 6.5c1.1 0 2 .9 2 2s-.9 2-2 2h-2.7c.3 1.2 1.4 2.1 2.7 2.1 1.6 0 3-1.4 3-3s-1.4-3-3-3c-1.4 0-2.4 1-2.9 2.1H9V9h4.6c.1 1 .4 2 1.3 2.7v.2c-.7.5-1.6.9-2.5.9-2.5 0-4.4-1.9-4.4-4.4s1.9-4.4 4.4-4.4c1.5 0 2.8.8 3.4 2h.4c-1.2-1.8-3.3-3-5.8-3C7.6 4 5 6.6 5 10s2.6 6 5.8 6c1.4 0 2.6-.5 3.6-1.3 1.2 1.4 3 2.3 5.1 2.3 3.3 0 6-2.7 6-6s-2.7-6-6-6c-2.2 0-4 1.1-5.2 2.7-.4-.1-.8-.2-1.2-.2-2.8 0-5 2.2-5 5s2.3 5 5 5c1.3 0 2.4-.5 3.3-1.3.8 2 2.8 3.3 5.1 3.3 3.3 0 6-2.7 6-6s-2.7-6-6-6c-1.2 0-2.2.4-3.1 1.1-.9-.6-2-.9-3.2-.9-2.7 0-5 2.2-5 5s2.3 5 5 5z"></path>
+                                </svg>
+								<span>Chi siamo</span>
+							</button>
+							</form>
+						</li>
+						<li>
+							<form id="LogOut" name="LogOut" th:action="@{/logout}"
+								method="post">
+								<button id="logout">
+									<svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+										stroke="currentColor" stroke-width="1.2"
+										stroke-linecap="round" xmlns="http://www.w3.org/2000/svg">
+                                        <path
+											d="M2.598 9h-1.055c1.482-4.638 5.83-8 10.957-8 6.347 0 11.5 5.153 11.5 11.5s-5.153 11.5-11.5 11.5c-5.127 0-9.475-3.362-10.957-8h1.055c1.443 4.076 5.334 7 9.902 7 5.795 0 10.5-4.705 10.5-10.5s-4.705-10.5-10.5-10.5c-4.568 0-8.459 2.923-9.902 7zm12.228 3l-4.604-3.747.666-.753 6.112 5-6.101 5-.679-.737 4.608-3.763h-14.828v-1h14.826z"></path>
+                                    </svg>
+									<span>Log Out</span>
+								</button>
+							</form>
+						</li>
+					</ul>
+				</nav>
+			</label>
+		</div>
+	</header>
+	<div class="container">
+		<div class="table-container">
+			<div class="table-header">
+				<h1>Attività di Volontariato</h1>
+				<form id="PaginaRichieste" name="PaginaRichieste" th:action="@{/PaginaWebPerlerichieste}" method="get">
+			<button class="btn btn-primary" th:if="${userType == 'ROLE_COMPANY'}">CREA</button>
+			</form>
+			</div>
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>Azienda</th>
+						<th>Attività</th>
+						<th>Periodo</th>
+						<th>Descrizione</th>
+						<th>Luogo</th>
+						<th th:if="${userType == 'ROLE_USER'}">Candidatura</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="attivita : ${attivitaList}">
+						<td th:text="${attivita.azienda.username}">Nome Azienda</td>
+						<td>
+							<p th:text="${attivita.titolo}">Titolo Attività</p>
+						</td>
+						<td><p
+								th:text="'Dal ' + ${attivita.dataInizio} + ' al ' + ${attivita.dataFine}">Periodo
+								Attività</p></td>
+						<td><p th:text="${attivita.descrizione}">Descrizione
+								Attività</p></td>
+						<td><p th:text="${attivita.luogo}">Luogo Attività</p></td>
+
+						<td>
+							<button class="btn btn-primary"
+								onclick="candidati(this,this.getAttribute('username'),this.getAttribute('idAttivita'),this.getAttribute('candidato'))"
+								th:username="${username}" th:idAttivita="${attivita.idAttivita}"
+								th:candidato="${candidato}" th:if="${userType == 'ROLE_USER'}">Candidati</button>
+								
+						</td>
+
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+
+	<footer>
+		<p>&copy; 2024 HandsUp. Tutti i diritti riservati.</p>
+	</footer>
+	<!-- Bootstrap JS e dipendenze -->
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+	<script
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+	<script>
+	// Funzione per inizializzare lo stato del bottone all'avvio della pagina
+	document.addEventListener('DOMContentLoaded', function() {
+    var buttons = document.querySelectorAll('.table-container .btn');
+    buttons.forEach(function(button) {
+        var row = button.closest('tr');
+        var idAttivita = parseInt(button.getAttribute('idAttivita'));
+        var candidato = parseInt(button.getAttribute('candidato'));
+        
+        console.log('idAttivita:', idAttivita);
+        console.log('candidato:', candidato);
+        
+        if (candidato === idAttivita) { // Utilizza === per confrontare i numeri interi
+            button.disabled = true;
+            button.innerText = "Candidato";
+            button.classList.remove('btn-primary');
+            button.classList.add('btn-success');
+        }
+    });
+});
+
+
+	// Funzione per gestire la candidatura
+	function candidati(button, username, idAttivita, candidato) {
+	    var row = button.closest('tr');
+	    var azienda = row.cells[0].innerText;
+	    var attivita = row.cells[1].innerText;
+	    var periodo = row.cells[2].innerText;
+
+	    var candidaturaMessage = "Ti sei candidato per l'attività: "
+	            + attivita + "\nPresso: " + azienda + "\nPeriodo: "
+	            + periodo;
+
+	    // Modifica del contenuto del modal
+	    var modalMessage = document.getElementById('candidaturaMessage');
+	    modalMessage.innerText = candidaturaMessage;
+
+	    // Mostra il modal
+	    $('#candidaturaModal').modal('show');
+
+	    // Disabilita il pulsante e cambia lo stile
+	    button.disabled = true;
+	    button.innerText = "Candidato";
+	    button.classList.remove('btn-primary');
+	    button.classList.add('btn-success');
+
+	    // Se non è candidato, esegui la richiesta POST all'API
+	    var url = '/users/' + username + '/' + idAttivita + '/aggiungi-utente';
+	    
+	    fetch(url, {
+	        method: 'POST',
+	        headers: {
+	            'Content-Type': 'application/json',
+	            // Aggiungi qui eventuali headers necessari come token di autenticazione
+	        },
+	        body: JSON.stringify({
+	            // Puoi aggiungere qui eventuali dati da inviare nel corpo della richiesta
+	        })
+	    })
+	    .then(response => {
+	        if (!response.ok) {
+	            throw new Error('Errore durante la candidatura');
+	        }
+	        // Gestisci la risposta come necessario
+	    })
+	    .catch(error => {
+	        console.error('Errore durante la candidatura:', error);
+	        // Gestisci l'errore, ad esempio mostrando un messaggio all'utente
+	    });
+	}
+
+</script>
+</html>

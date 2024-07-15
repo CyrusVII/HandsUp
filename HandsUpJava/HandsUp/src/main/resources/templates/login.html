@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!-- login page -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <!-- Dichiarazione style e JS -->
+    <link rel="stylesheet" href="/asset/css/styleLogin.css">
+    <script src="/asset/JS/JsLogin.js" defer></script>
+</head>
+<body>
+    <!-- Zona logo -->
+    <div class="container">
+        <div class="logo-section">
+            <img src="/asset/img/HANDSUPcircle.png" alt="Logo">
+        </div>
+        <div class="login-section">
+            <div class="login-box">
+                <h1>HandsUp</h1>
+                <!-- Login form -->
+                <form id="loginForm" th:action="@{/loginGo}" method="post">
+                    <input type="email" placeholder="Email" id="email" name="email" required>
+                    <input type="password" id="password" placeholder="Password" name="password" required>
+                    <select id="userType" name="userType" required>
+                        <option value="" disabled selected>Select your role</option>
+                        <option value="user">User</option>
+                        <option value="company">Company</option>
+                    </select>
+                    <button type="submit" style="cursor: pointer;">Log In</button>
+                </form>
+                <!-- Password error -->
+                <div id="passwordError" style="color: red;" th:if="${param.error}">
+                    Invalid email or password.
+                </div>
+                
+                <div class="or">
+                    <hr>
+                    <span>OR</span>
+                    <hr>
+                </div>
+                <!-- Login with Google -->
+                <button class="google-login" style="cursor: pointer;">Login with Google</button>
+                <div class="forget-pwd">
+                    <a href="#">Forgot password?</a>
+                </div>
+            </div>
+            <!-- Don't have an account? -->
+            <div class="signup-box">
+                <p>
+                    Don't have an account? <a th:href="@{/register}">Sign up</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

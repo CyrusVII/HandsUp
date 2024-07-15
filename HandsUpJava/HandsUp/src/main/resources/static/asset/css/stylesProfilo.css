@@ -1,0 +1,212 @@
+/* Reset CSS base */
+body, h1, h2, h3, p, ul, li {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f2f5;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh; /* Assicura che il body occupi almeno l'intera altezza del viewport */
+}
+
+/* Header */
+header {
+    background-color: #5f93fd;
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 24px;
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+}
+
+.user-profile img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+/* Main Content */
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    padding: 20px;
+    min-height: calc(100vh - 100px); /* Calcola l'altezza in modo che il footer non copra il contenuto */
+    display: flex;
+    flex-direction: column; /* Aggiunto per gestire il layout dei contenuti */
+}
+
+.profile-header {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.profile-header img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-right: 20px;
+}
+
+.profile-header h1 {
+    margin: 0;
+    font-size: 24px;
+}
+
+.profile-img-container {
+    position: relative; /* Imposta il contenitore dell'immagine del profilo come relativo */
+    display: inline-block;
+}
+
+.profile-img-container img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+}
+
+.profile-img-container .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 80px;
+    height: 80px;
+    background-color: rgba(0, 0, 0, 0.6); /* Sfondo nero con trasparenza */
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease; /* Effetto di transizione */
+    font-size: 16px; /* Dimensione del testo */
+    text-align: center;
+    border-radius: 50%; /* Per adattarsi all'immagine del profilo */
+}
+
+.profile-img-container:hover .overlay {
+    opacity: 1; /* Mostra l'overlay quando si passa il cursore sull'elemento padre */
+}
+.profile-actions {
+    margin-left: auto;
+    display: flex;
+    gap: 10px;
+}
+
+.profile-actions button {
+    padding: 10px 20px;
+    background-color: #3b5998;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.profile-actions button:hover {
+    background-color: #354f88;
+}
+
+/* Profile Info */
+.profile-info {
+    margin-bottom: 20px;
+}
+
+.profile-info p {
+    margin-bottom: 10px;
+}
+
+.profile-info-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+/* Posts */
+.post {
+    border-bottom: 1px solid #ccc;
+    padding: 20px 0;
+    display: flex;
+    align-items: flex-start;
+}
+
+.post img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    margin-right: 20px;
+}
+
+.post-content {
+    flex: 1;
+}
+
+/* Dropdown Menu */
+.menu-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.menu-dropdown button {
+    background-color: #3b5998;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.menu-dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 160px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    z-index: 1;
+    right: 0;
+}
+
+.menu-dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.menu-dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.menu-dropdown:hover .menu-dropdown-content {
+    display: block;
+}
+
+.menu-dropdown:hover button {
+    background-color: #354f88;
+}
+
+
+
+/* Footer */
+footer {
+    background-color: #3b5998;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    width: 100%;
+}

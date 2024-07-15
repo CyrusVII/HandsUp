@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!--SignUp page-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign-Up Page</title>
+    <!--Dichiarazione style e JS-->
+    <link rel="stylesheet" href="/asset/css/styleSingup.css">
+    <script src="/asset/JS/JsSingup.js" defer></script>
+</head>
+<body>
+    <!--Zona logo-->
+    <div class="container">
+        <div class="logo-section">
+            <img src="/asset/img/HANDSUPcircle.png" alt="Logo">
+        </div>
+        <div class="signup-section">
+            <div class="signup-box">
+                <h1>HandsUp</h1>
+                <h3>Register Form</h3>
+                <!--Register form utente-->
+                <div>
+                    <select id="userType" name="userType" required>
+                        <option value="" disabled selected>Select your role</option>
+                        <option value="user">User</option>
+                        <option value="company">Company</option>
+                    </select>
+
+                    <!-- Form per utenti -->
+                    <form id="userForm" name="userForm" th:action="@{/process_register_user}" method="post" class="hidden">
+                        <input type="text" placeholder="Username" id="use" th:field="*{user.username}" required>
+                        <input type="text" placeholder="Name" id="name" th:field="*{user.nome}" required>
+                        <input type="text" placeholder="Surname" id="surname" th:field="*{user.cognome}" required>
+                        <input type="email" placeholder="Email" id="email" th:field="*{user.email}" required>
+                        <input type="email" placeholder="Confirm Email" id="confmail" required>
+                        <input type="text" placeholder="City" id="city" th:field="*{user.citta}" required>
+                        <input type="date" id="born" th:field="*{user.dataNascita}" required>
+                        <input type="password" id="pwd" placeholder="Password" th:field="*{user.password}" required>
+                        <input type="password" id="pwdConfirm" placeholder="Confirm Password" required>
+                        <button type="submit" style="cursor: pointer;">Register</button>
+                    </form>
+
+                    <!-- Form per aziende -->
+                    <form id="companyForm" name="companyForm" th:action="@{/process_register_company}" method="post" class="hidden">
+                        <input type="text" placeholder="Company Name" id="companyName" th:field="*{company.nomeAzienda}" required>
+                        <input type="text" placeholder="Company Username" id="companyUserName" th:field="*{company.username}" required>
+                        <input type="text" placeholder="Company ID" id="companyId" th:field="*{company.idAzienda}" required>
+                        <input type="text" placeholder="Company City" id="companyZona" th:field="*{company.areaCompetenza}" required>
+                        <input type="date" id="companyFoundation" th:field="*{company.dataCreazione}" required>
+                        <input type="email" placeholder="Company Email" id="emailCompany" th:field="*{company.email}" required>
+                        <input type="email" placeholder="Confirm Email" id="emailCompanyConf" required>
+                        <input type="password" id="pwdCompany" placeholder="Password" th:field="*{company.password}" required>
+                        <input type="password" id="pwdConfirmCompany" placeholder="Confirm Password" required>
+                        <button type="submit" style="cursor: pointer;">Register</button>
+                    </form>
+                </div>
+
+                <!--Password error-->
+                <div id="Error" style="color: red;"></div>
+                <div class="or">
+                    <hr><span>OR</span><hr>
+                </div>
+                <!--Register with google-->
+                <button class="google-register" style="cursor: pointer;">Register with Google (only for user)</button>
+            </div>
+            <!--Don't have an account?-->
+            <div class="signup-box">
+                <p>Do you have an account? <a th:href="@{/}">Login</a></p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+

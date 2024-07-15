@@ -1,0 +1,157 @@
+
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Errore</title>
+<!-- Bootstrap CSS -->
+<link
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+	rel="stylesheet">
+<link rel="stylesheet" href="asset/css/popup.css">
+<style>
+body {
+	background-color: #f8f9fa;
+	margin: 0;
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+	font-family: 'Tahoma', sans-serif;
+}
+
+
+header {
+	background-color: #5f93fd;
+	color: white;
+	padding: 15px 30px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+header .logo img {
+	width: 80px; /* Imposta la larghezza desiderata */
+	height: 80px; /* Imposta l'altezza desiderata */
+}
+
+.user-profile {
+	display: flex;
+	align-items: center;
+}
+
+.user-profile img {
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	margin-right: 10px;
+}
+
+.error-container {
+	max-width: 600px;
+	margin: 20px auto;
+	background: #fff;
+	padding: 20px;
+	border-radius: 10px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	position: relative;
+	z-index: 1;
+	text-align: center;
+}
+
+.error-header {
+	margin-bottom: 20px;
+	position: relative;
+}
+
+.error-header h1 {
+	font-size: 24px;
+	font-weight: 700;
+	color: #5f93fd;
+}
+
+.btn-primary {
+	background-color: #5f93fd;
+	border-color: #5f93fd;
+}
+
+.btn-primary:hover {
+	background-color: #4a7de0;
+	border-color: #4a7de0;
+}
+
+.logo {
+	position: absolute;
+	top: 0px;
+	left: 10px;
+	width: 50px;
+	height: 50px;
+}
+
+.top-rectangle, .bottom-rectangle {
+	background-color: #5f93fd;
+	height: 50px;
+	width: 100%;
+	position: relative;
+}
+
+.bottom-rectangle {
+	margin-top: auto;
+}
+
+.error-message {
+	font-size: 18px;
+	margin-bottom: 20px;
+}
+
+.error-code {
+	font-size: 72px;
+	font-weight: bold;
+	color: #5f93fd;
+	margin-bottom: 20px;
+}
+</style>
+</head>
+<body>
+	<header>
+			<div class="top-rectangle">
+			<form id="ProfiloFrom" th:action="@{/index}" method="get">
+				<button type="submit"
+					style="border: none; background: none; padding: 0; cursor: pointer;">
+					<img src="/asset/img/HANDSUPcircle.png" alt="Logo" class="logo">
+				</button>
+			</form>
+		</div>
+	</header>
+	<div class="container">
+		<div class="error-container">
+			<div class="error-header">
+				<h1>Oops! Si è verificato un errore</h1>
+			</div>
+			<div class="error-code" id="errorCode">404</div>
+			<div class="error-message" id="errorMessage">La pagina che stai
+				cercando non è stata trovata.</div>
+			<a href="/" class="btn btn-primary">Torna alla Home</a>
+		</div>
+	</div>
+	<div class="bottom-rectangle"></div>
+
+	<!-- Bootstrap JS e dipendenze -->
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+	<script
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+	<script>
+		// Funzione per impostare il codice di errore e il messaggio
+		function setError(code, message) {
+			document.getElementById('errorCode').innerText = code;
+			document.getElementById('errorMessage').innerText = message;
+		}
+
+		// Esempio di come usare la funzione (da chiamare in base all'errore specifico)
+		// setError('404', 'La pagina che stai cercando non è stata trovata.');
+		// setError('403', 'Non hai il permesso di accedere a questa pagina.');
+		// setError('500', 'Si è verificato un errore interno del server.');
+	</script>
+</body>
+</html>

@@ -1,0 +1,228 @@
+/* Reset CSS base */
+body, h1, h2, h3, p, ul, li {
+    margin: 0;
+    padding: 0;
+}
+/* Impostazioni base per il body */
+body {
+    font-family: Arial, sans-serif; /* Font generale per il sito */
+    background-color: #f0f2f5; /* Colore di sfondo del body */
+    margin: 0;
+    padding: 0;
+    min-height: 100vh; /* Assicura che il body occupi almeno l'intera altezza del viewport */
+}
+
+/* Stile per l'header */
+header {
+    background-color: #5f93fd; /* Colore di sfondo dell'header */
+    color: white; /* Colore del testo dell'header */
+    padding: 10px 20px; /* Spaziatura interna dell'header */
+    display: flex; /* Utilizzo del flexbox per allineare gli elementi */
+    justify-content: space-between; /* Spaziatura tra gli elementi dell'header */
+    align-items: center; /* Allineamento verticale degli elementi al centro */
+}
+
+.logo {
+    font-size: 24px; /* Dimensione del font del logo */
+}
+
+.user-profile {
+    display: flex; /* Utilizzo del flexbox per allineare gli elementi */
+    align-items: center; /* Allineamento verticale degli elementi al centro */
+}
+
+.user-profile img {
+    width: 40px; /* Larghezza dell'immagine del profilo */
+    height: 40px; /* Altezza dell'immagine del profilo */
+    border-radius: 50%; /* Immagine circolare */
+    margin-right: 10px; /* Spaziatura a destra dell'immagine */
+}
+
+/* Stile per il contenuto principale */
+.container {
+    max-width: 800px; /* Larghezza massima del contenitore */
+    margin: 20px auto; /* Margini superiori e inferiori, centrato orizzontalmente */
+    background-color: #fff; /* Colore di sfondo bianco */
+    border-radius: 5px; /* Angoli arrotondati */
+    box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Ombra attorno al contenitore */
+    padding: 20px; /* Spaziatura interna */
+    min-height: calc(100vh - 100px); /* Calcola l'altezza in modo che il footer non copra il contenuto */
+}
+
+/* Stile per l'intestazione del profilo */
+.profile-header {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.profile-header img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-right: 20px;
+}
+
+.profile-header h1 {
+    margin: 0;
+    font-size: 24px;
+}
+
+.profile-img-container {
+    position: relative; /* Imposta il contenitore dell'immagine del profilo come relativo */
+    display: inline-block;
+}
+
+.profile-img-container img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+}
+
+.profile-img-container .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 80px;
+    height: 80px;
+    background-color: rgba(0, 0, 0, 0.6); /* Sfondo nero con trasparenza */
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease; /* Effetto di transizione */
+    font-size: 16px; /* Dimensione del testo */
+    text-align: center;
+    border-radius: 50%; /* Per adattarsi all'immagine del profilo */
+}
+
+.profile-img-container:hover .overlay {
+    opacity: 1; /* Mostra l'overlay quando si passa il cursore sull'elemento padre */
+}
+
+.profile-header h1 {
+    margin: 0; /* Nessun margine */
+    font-size: 24px; /* Dimensione del font dell'intestazione del profilo */
+}
+
+/* Contenitore delle informazioni del profilo */
+.profile-info-container {
+    display: flex; /* Utilizzo del flexbox per disporre gli elementi in fila */
+    justify-content: space-between; /* Spaziatura tra gli elementi */
+    margin-bottom: 20px; /* Margine inferiore */
+}
+
+.profile-info {
+    flex: 1; /* Flessibilità dell'elemento per occupare lo spazio disponibile */
+    margin-right: 20px; /* Margine a destra */
+}
+
+.profile-info p {
+    margin-bottom: 10px; /* Margine inferiore per i paragrafi */
+}
+
+/* Stile per le azioni del profilo */
+.profile-actions {
+    display: flex; /* Utilizzo del flexbox per allineare gli elementi */
+    gap: 10px; /* Spaziatura tra i pulsanti */
+    margin-left: auto; /* Margine sinistro automatico per spingere gli elementi verso destra */
+}
+
+.profile-actions button {
+    padding: 10px 20px; /* Spaziatura interna */
+    background-color: #3b5998; /* Colore di sfondo del pulsante */
+    color: white; /* Colore del testo del pulsante */
+    border: none; /* Nessun bordo */
+    cursor: pointer; /* Cursore a mano quando si passa sopra il pulsante */
+    border-radius: 5px; /* Angoli arrotondati */
+}
+
+.profile-actions button:hover {
+    background-color: #354f88; /* Colore di sfondo del pulsante quando ci si passa sopra */
+}
+
+/* Stile per i post */
+.post {
+    border-bottom: 1px solid #ccc; /* Bordo inferiore */
+    padding: 20px 0; /* Spaziatura verticale interna */
+    display: flex; /* Utilizzo del flexbox per allineare gli elementi */
+    align-items: flex-start; /* Allineamento degli elementi all'inizio verticale */
+}
+
+.post img {
+    width: 100px; /* Larghezza dell'immagine del post */
+    height: 100px; /* Altezza dell'immagine del post */
+    object-fit: cover; /* Adatta l'immagine mantenendo le proporzioni */
+    margin-right: 20px; /* Margine a destra */
+}
+
+.post-content {
+    flex: 1; /* Flessibilità dell'elemento per occupare lo spazio disponibile */
+}
+
+.post h3 {
+    margin-top: 0; /* Nessun margine superiore */
+    margin-bottom: 10px; /* Margine inferiore */
+}
+
+/* Stile per il contenitore del menu a tendina */
+.menu-dropdown {
+    position: relative; /* Posizione relativa per il contenitore del menu */
+    display: inline-block; /* Visualizzazione in linea */
+}
+
+/* Stile del pulsante del menu a tendina */
+.menu-dropdown button {
+    background-color: #3b5998; /* Colore di sfondo del pulsante */
+    color: white; /* Colore del testo del pulsante */
+    border: none; /* Nessun bordo */
+    padding: 10px 20px; /* Spaziatura interna */
+    cursor: pointer; /* Cursore a mano quando si passa sopra il pulsante */
+    font-size: 16px; /* Dimensione del font */
+}
+
+/* Contenitore del contenuto del menu a tendina */
+.menu-dropdown-content {
+    display: none; /* Nasconde il contenuto del menu per default */
+    position: absolute; /* Posizione assoluta per il contenuto del menu */
+    background-color: white; /* Colore di sfondo bianco */
+    min-width: 160px; /* Larghezza minima del contenuto del menu */
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2); /* Ombra attorno al contenuto del menu */
+    z-index: 1; /* Imposta la priorità di visualizzazione */
+    right: 0; /* Allinea il contenuto del menu a destra */
+}
+
+/* Stile dei link all'interno del menu a tendina */
+.menu-dropdown-content a {
+    color: black; /* Colore del testo dei link */
+    padding: 12px 16px; /* Spaziatura interna */
+    text-decoration: none; /* Nessuna decorazione del testo */
+    display: block; /* Visualizzazione a blocco */
+}
+
+/* Stile dei link al passaggio del mouse */
+.menu-dropdown-content a:hover {
+    background-color: #f1f1f1; /* Colore di sfondo quando si passa sopra il link */
+}
+
+/* Mostra il menu a tendina al passaggio del mouse */
+.menu-dropdown:hover .menu-dropdown-content {
+    display: block; /* Mostra il contenuto del menu quando si passa sopra il pulsante */
+}
+
+/* Cambia colore del pulsante del menu al passaggio del mouse */
+.menu-dropdown:hover button {
+    background-color: #354f88; /* Colore di sfondo del pulsante quando si passa sopra */
+}
+
+/* Stile per il footer */
+footer {
+    background-color: #3b5998; /* Colore di sfondo del footer */
+    color: white; /* Colore del testo del footer */
+    text-align: center; /* Allineamento centrale del testo */
+    padding: 10px 0; /* Spaziatura verticale interna */
+    width: 100%; /* Larghezza del footer */
+}

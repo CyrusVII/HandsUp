@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HandsUp - Profilo Aziendale</title>
+    <link rel="stylesheet" href="asset/css/stylesAzienda.css">
+    <link rel="stylesheet" href="asset/css/popup.css">
+    <style>
+    body {
+            font-family: 'Tahoma', sans-serif; /* Cambia il font a Tahoma per tutto il documento */
+        }
+        /* Stili personalizzati per i pulsanti e il footer */
+        .profile-actions button {
+            background-color: #5f93fd; /* Colore di sfondo blu */
+            color: white; /* Colore del testo bianco */
+            border: none; /* Rimuovi il bordo */
+            padding: 10px 20px; /* Padding interno */
+            cursor: pointer; /* Cambia il cursore al passaggio */
+            margin-right: 10px; /* Margine a destra tra i pulsanti */
+        }
+		
+		header .logo img {
+	width: 80px; /* Imposta la larghezza desiderata */
+	height: 80px; /* Imposta l'altezza desiderata */
+}
+        .profile-actions button:hover {
+            background-color: #4078c0; /* Cambia il colore di sfondo al passaggio del mouse */
+        }
+
+        footer {
+            background-color: #5f93fd; /* Colore di sfondo blu per il footer */
+            color: white; /* Colore del testo bianco */
+            text-align: center; /* Allinea il testo al centro */
+            padding: 10px 0; /* Padding interno al footer */
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Intestazione della pagina -->
+   <header>
+		<div class="logo">
+			<img src="/asset/img/HANDSUPcircle.png" class="profile-img"
+				style="width: 50px; height: 50px;">
+		</div>
+		<div class="user-profile">
+			<div>
+				<p th:text="${username}" style="margin-right: 5px;"></p>
+			</div>
+			<!-- Menu a tendina -->
+			<label class="popup"> <input type="checkbox">
+				<div tabindex="0" class="burger">
+					<img th:if="${userType == 'ROLE_COMPANY'}"
+						th:src="@{'http://localhost:8080/azienda/' + ${username} + '/profile-picture'}"
+						class="profile-img">
+				</div>
+				<nav class="popup-window">
+					<legend>Menu</legend>
+					<ul>
+						<li><form id="ProfiloFrom" th:action="@{/index}" method="get">
+								<button>
+									<svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+										stroke="currentColor" stroke-width="1.2"
+										stroke-linecap="round" xmlns="http://www.w3.org/2000/svg">
+                                        <path
+											d="M12 2c-2.209 0-4 1.791-4 4s1.791 4 4 4 4-1.791 4-4-1.791-4-4-4zM12 10c-2.209 0-4 1.791-4 4v6h8v-6c0-2.209-1.791-4-4-4z"></path>
+                                    </svg>
+									<span>Home</span>
+								</button>
+							</form></li>
+						<li>
+							<form id="PaginaVolontriato" name="PaginaVolontriato" th:action="@{/PaginaPerLaCandidaturaVolontariato}">
+							<button>
+								<svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+									stroke="currentColor" stroke-width="1.2" stroke-linecap="round"
+									xmlns="http://www.w3.org/2000/svg">
+                                    <path
+										d="M16.5 6.5c1.1 0 2 .9 2 2s-.9 2-2 2h-2.7c.3 1.2 1.4 2.1 2.7 2.1 1.6 0 3-1.4 3-3s-1.4-3-3-3c-1.4 0-2.4 1-2.9 2.1H9V9h4.6c.1 1 .4 2 1.3 2.7v.2c-.7.5-1.6.9-2.5.9-2.5 0-4.4-1.9-4.4-4.4s1.9-4.4 4.4-4.4c1.5 0 2.8.8 3.4 2h.4c-1.2-1.8-3.3-3-5.8-3C7.6 4 5 6.6 5 10s2.6 6 5.8 6c1.4 0 2.6-.5 3.6-1.3 1.2 1.4 3 2.3 5.1 2.3 3.3 0 6-2.7 6-6s-2.7-6-6-6c-2.2 0-4 1.1-5.2 2.7-.4-.1-.8-.2-1.2-.2-2.8 0-5 2.2-5 5s2.3 5 5 5c1.3 0 2.4-.5 3.3-1.3.8 2 2.8 3.3 5.1 3.3 3.3 0 6-2.7 6-6s-2.7-6-6-6c-1.2 0-2.2.4-3.1 1.1-.9-.6-2-.9-3.2-.9-2.7 0-5 2.2-5 5s2.3 5 5 5z"></path>
+                                </svg>
+								<span>Cerca/Proponi</span>
+							</button>
+							</form>
+						</li>
+						<li>
+							<form id="PostFrom" th:action="@{/PaginaDiCaricamentoPost}"
+								method="get">
+								<button type="submit">
+									<svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+										stroke="currentColor" stroke-width="1.2"
+										stroke-linecap="round" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M12 5v14m-7-7h14"></path>
+                                    </svg>
+									<span>Crea Post</span>
+								</button>
+							</form>
+						</li>
+						<li>
+						<form id="ChiSiamo" name="ChiSiamo" th:action="@{/ChiSiamo}">
+							<button>
+								<svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+									stroke="currentColor" stroke-width="1.2" stroke-linecap="round"
+									xmlns="http://www.w3.org/2000/svg">
+                                    <path
+										d="M16.5 6.5c1.1 0 2 .9 2 2s-.9 2-2 2h-2.7c.3 1.2 1.4 2.1 2.7 2.1 1.6 0 3-1.4 3-3s-1.4-3-3-3c-1.4 0-2.4 1-2.9 2.1H9V9h4.6c.1 1 .4 2 1.3 2.7v.2c-.7.5-1.6.9-2.5.9-2.5 0-4.4-1.9-4.4-4.4s1.9-4.4 4.4-4.4c1.5 0 2.8.8 3.4 2h.4c-1.2-1.8-3.3-3-5.8-3C7.6 4 5 6.6 5 10s2.6 6 5.8 6c1.4 0 2.6-.5 3.6-1.3 1.2 1.4 3 2.3 5.1 2.3 3.3 0 6-2.7 6-6s-2.7-6-6-6c-2.2 0-4 1.1-5.2 2.7-.4-.1-.8-.2-1.2-.2-2.8 0-5 2.2-5 5s2.3 5 5 5c1.3 0 2.4-.5 3.3-1.3.8 2 2.8 3.3 5.1 3.3 3.3 0 6-2.7 6-6s-2.7-6-6-6c-1.2 0-2.2.4-3.1 1.1-.9-.6-2-.9-3.2-.9-2.7 0-5 2.2-5 5s2.3 5 5 5z"></path>
+                                </svg>
+								<span>Chi siamo</span>
+							</button>
+							</form>
+						</li>
+						<li>
+							<form id="LogOut" name="LogOut" th:action="@{/logout}"
+								method="post">
+								<button id="logout">
+									<svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+										stroke="currentColor" stroke-width="1.2"
+										stroke-linecap="round" xmlns="http://www.w3.org/2000/svg">
+                                        <path
+											d="M2.598 9h-1.055c1.482-4.638 5.83-8 10.957-8 6.347 0 11.5 5.153 11.5 11.5s-5.153 11.5-11.5 11.5c-5.127 0-9.475-3.362-10.957-8h1.055c1.443 4.076 5.334 7 9.902 7 5.795 0 10.5-4.705 10.5-10.5s-4.705-10.5-10.5-10.5c-4.568 0-8.459 2.923-9.902 7zm12.228 3l-4.604-3.747.666-.753 6.112 5-6.101 5-.679-.737 4.608-3.763h-14.828v-1h14.826z"></path>
+                                    </svg>
+									<span>Log Out</span>
+								</button>
+							</form>
+						</li>
+					</ul>
+				</nav>
+			</label>
+		</div>
+	</header>
+
+    <!-- Contenitore principale -->
+    <div class="container">
+        <!-- Intestazione del profilo aziendale -->
+        <div class="profile-header">
+            <div class="profile-img-container">
+				<form id="profilePictureForm"
+					th:action="@{/azienda/uploadProfilePicture}" method="post"
+					enctype="multipart/form-data">
+					<input type="file" id="profilePictureInput" name="profilePicture"
+						style="display: none;" onchange="submitProfilePictureForm()">
+					<img
+						th:src="@{'http://localhost:8080/azienda/' + ${username} + '/profile-picture'}"
+						style="width: 80px; height: 80px;">
+					<div class="overlay"
+						onclick="document.getElementById('profilePictureInput').click()">Modifica</div>
+				</form>
+			</div>
+            <div>
+                <h1 th:text="${username}"></h1> <!-- Nome dell'azienda -->
+                <p>Sede principale: Roma, Italia</p> <!-- Sede principale dell'azienda -->
+            </div>
+
+            <div class="profile-actions">
+             <!-- Pulsante per modificare il profilo -->
+                <form id="PaginaVolontriato" name="PaginaVolontriato" th:action="@{/PaginaPerLaCandidaturaVolontariato}">
+                <button >Invia Offerta Lavorativa</button>
+                </form> <!-- Pulsante per inviare un'offerta lavorativa -->
+            </div>
+        </div>
+
+        <!-- Contenitore delle informazioni del profilo -->
+        <div class="profile-info-container">
+            <div class="profile-info">
+                <p th:text="'Email: ' + ${email}"></p>
+				<p th:text="'Data di nascita: ' + ${DataNascita}"></p>
+            </div>
+
+            <div class="profile-info">
+                <p th:text="'Codice: ' + ${Id}"></p>
+                <p th:text="'Città : ' + ${citta}"></p>
+            </div>
+        </div>
+		
+		
+		<div th:each="post : ${postsPU}" class="post">
+                <img
+						th:src="@{'/users/' + ${post.azienda.username} + '/posts/' + ${post.id} + '/image'}"
+						class="post-image" height="400" width="600">
+                <div class="post-content">
+                    <p th:text="${post.testo}">Contenuto del Post</p>
+                    <br>
+                    <br>
+                    <p th:text="'Data: ' + ${#dates.format(post.dataPubblicazione, 'dd-MM-yyyy')}">Data del Post</p>
+                </div>
+            </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 HandsUp. Tutti i diritti riservati.</p> <!-- Informazioni di copyright -->
+    </footer>
+    <script>
+    function submitProfilePictureForm() {
+        document.getElementById('profilePictureForm').submit();
+    }
+</script>
+</body>
+
+</html>
