@@ -1,49 +1,45 @@
-#🌐 HandsUp - Social Network per Volontariato
-HansUp è un social network sviluppato come progetto di gruppo, pensato per mettere in contatto aziende e utenti con l'obiettivo di promuovere il volontariato. La piattaforma è composta da:
+# 🌐 HandsUp - Social Network per Volontariato
 
-Backend in Java con Spring Boot
+**HandsUp** è un social network sviluppato come progetto di gruppo, pensato per mettere in contatto aziende e utenti con l'obiettivo di promuovere il volontariato.
 
-Database SQL
+La piattaforma è composta da:
 
-Frontend web in HTML, CSS e JavaScript
+- Backend in **Java con Spring Boot**
+- Database **SQL**
+- Frontend web in **HTML, CSS e JavaScript**
 
-##🚀 Funzionalità principali
-###👥 Aziende
-- Registrazione e login
+## 🚀 Funzionalità principali
 
-- Creazione di un profilo aziendale
+### 👥 Aziende
 
-- Pubblicazione di post informativi o ispirazionali
+- Registrazione e login  
+- Creazione di un profilo aziendale  
+- Pubblicazione di post informativi o ispirazionali  
+- Creazione e gestione di eventi di volontariato  
 
-- Creazione e gestione di eventi di volontariato
+### 🙋‍♂️ Utenti
 
-###🙋‍♂️ Utenti
-Registrazione e login
+- Registrazione e login  
+- Creazione di un profilo utente stile Instagram  
+- Visualizzazione del feed con i post pubblicati dalle aziende  
+- Possibilità di aderire agli eventi di volontariato  
 
-- Creazione di un profilo utente stile Instagram
+## 🧰 Tecnologie utilizzate
 
-- Visualizzazione del feed con i post pubblicati dalle aziende
+### Backend
 
-- Possibilità di aderire agli eventi di volontariato
+- Java 17  
+- Spring Boot  
+- Spring Data JPA  
+- MySQL / PostgreSQL  
 
-##🧰 Tecnologie utilizzate
-###Backend
-- Java 17
+### Frontend
 
-= Spring Boot
-
-- Spring Data JPA
-
-- MySQL / PostgreSQL
-
-###Frontend
-- HTML5
-
-- CSS3
-
-- JavaScript (Vanilla JS)
+- HTML5  
+- CSS3  
+- JavaScript (Vanilla JS)  
 
 ### Altro
-- Maven / Gradle
 
-- REST API
+- Maven / Gradle  
+- REST API  
