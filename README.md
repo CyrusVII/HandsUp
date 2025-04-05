@@ -1,5 +1,5 @@
-🌐 SocialVol - Social Network per Volontariato
-SocialVol è un social network sviluppato come progetto di gruppo, pensato per mettere in contatto aziende e utenti con l'obiettivo di promuovere il volontariato. La piattaforma è composta da:
+#🌐 HandsUp - Social Network per Volontariato
+HansUp è un social network sviluppato come progetto di gruppo, pensato per mettere in contatto aziende e utenti con l'obiettivo di promuovere il volontariato. La piattaforma è composta da:
 
 Backend in Java con Spring Boot
 
@@ -7,43 +7,43 @@ Database SQL
 
 Frontend web in HTML, CSS e JavaScript
 
-🚀 Funzionalità principali
-👥 Aziende
+##🚀 Funzionalità principali
+###👥 Aziende
+- Registrazione e login
+
+- Creazione di un profilo aziendale
+
+- Pubblicazione di post informativi o ispirazionali
+
+- Creazione e gestione di eventi di volontariato
+
+###🙋‍♂️ Utenti
 Registrazione e login
 
-Creazione di un profilo aziendale
+- Creazione di un profilo utente stile Instagram
 
-Pubblicazione di post informativi o ispirazionali
+- Visualizzazione del feed con i post pubblicati dalle aziende
 
-Creazione e gestione di eventi di volontariato
+- Possibilità di aderire agli eventi di volontariato
 
-🙋‍♂️ Utenti
-Registrazione e login
+##🧰 Tecnologie utilizzate
+###Backend
+- Java 17
 
-Creazione di un profilo utente stile Instagram
+= Spring Boot
 
-Visualizzazione del feed con i post pubblicati dalle aziende
+- Spring Data JPA
 
-Possibilità di aderire agli eventi di volontariato
+- MySQL / PostgreSQL
 
-🧰 Tecnologie utilizzate
-Backend
-Java 17
+###Frontend
+- HTML5
 
-Spring Boot
+- CSS3
 
-Spring Data JPA
+- JavaScript (Vanilla JS)
 
-MySQL / PostgreSQL
+### Altro
+- Maven / Gradle
 
-Frontend
-HTML5
-
-CSS3
-
-JavaScript (Vanilla JS)
-
-Altro
-Maven / Gradle
-
-REST API
+- REST API
